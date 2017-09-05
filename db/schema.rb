@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20170825172423) do
   create_table "scenes", force: :cascade do |t|
     t.string "title"
     t.string "notes"
+    t.integer "x_coord"
+    t.integer "y_coord"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
