@@ -1,5 +1,17 @@
 Project.create(name: "My Project")
 
+characters = Character.create(
+  [
+    {
+      first_name: "Bob",
+      last_name: "Hammond",
+      hometown: "Las Vegas",
+      likes: "pina coladas and getting caught in the rain",
+      dislikes: "spiders"
+    }
+  ]
+)
+
 scenes = Scene.create(
   [
     {
