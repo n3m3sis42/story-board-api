@@ -30,7 +30,7 @@ class Api::V1::ScenesController < ApplicationController
   private
 
   def scene_params
-    params.require(:scene).permit(:title, :notes, :x_coord, :y_coord)
+    params.require(:scene).permit(:title, :notes, :x_coord, :y_coord, :project_id)
   end
 
 end

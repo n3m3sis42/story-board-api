@@ -5,6 +5,7 @@ class CreateScenes < ActiveRecord::Migration[5.1]
       t.string :notes
       t.integer :x_coord
       t.integer :y_coord
+      t.integer :project_id
 
       t.timestamps
     end
