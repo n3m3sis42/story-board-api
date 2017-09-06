@@ -10,6 +10,11 @@ class Api::V1::ProjectsController < ApplicationController
     render json: projects
   end
 
+  def show
+    project = Project.find(params[:id])
+    render json: project.build_api_data
+  end
+
   def update
     project = Project.find(params[:id])
     project.update(project_params)
