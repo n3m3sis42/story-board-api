@@ -15,7 +15,10 @@
 
 class Scene < ApplicationRecord
   belongs_to :project
-  has_one :position
   has_many :scene_characters
   has_many :characters, through: :scene_characters
+
+  def coords
+    [self.x_coord, self.y_coord]
+  end
 end

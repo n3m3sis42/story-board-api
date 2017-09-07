@@ -11,24 +11,23 @@
 
 class Project < ApplicationRecord
   has_many :scenes
-  has_many :positions, through: :scenes
   has_many :characters, through: :scenes
 
-  def scene_coords
-    self.positions.map {|position| { id: position.scene_id, coords: [position.x, position.y] }}
+  def scene_positions
+    self.scenes.map{|scene| { id: scene.id, coords: scene.coords }}
   end
 
   def build_api_data
     { project: self,
       scenes: {
-        positions: self.positions,
+        positions: self.scene_positions,
         characters: self.characters
       }
     }
   end
 
   def position_in_use(coords)
-    self.scene_coords.find {|position| position[:coords] == coords}
+    self.scene_positions.find {|position| position[:coords] == coords}
   end
 
   # TODO

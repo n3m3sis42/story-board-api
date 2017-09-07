@@ -13,6 +13,7 @@ class Api::V1::ScenesController < ApplicationController
 
   def update
     scene = Scene.find(params[:id])
+    byebug    
     scene.update(scene_params)
     render json: scene
   end
@@ -30,7 +31,7 @@ class Api::V1::ScenesController < ApplicationController
   private
 
   def scene_params
-    params.require(:scene).permit(:title, :notes, :x_coord, :y_coord, :project_id)
+    params.require(:scene).permit(:title, :notes, :x_coord, :y_coord, :project_id, :position => [:x, :y])
   end
 
 end
