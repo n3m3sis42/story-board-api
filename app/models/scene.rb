@@ -15,6 +15,7 @@
 
 class Scene < ApplicationRecord
   belongs_to :project
+  has_one :position
   has_many :scene_characters
-  has_many :characters, through: :scene_characters  
+  has_many :characters, through: :scene_characters
 end
