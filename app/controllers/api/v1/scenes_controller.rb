@@ -1,4 +1,5 @@
 class Api::V1::ScenesController < ApplicationController
+  before_action :authenticate_user
 
   def create
     scene = Scene.create(scene_params)
