@@ -16,7 +16,7 @@ class Api::V1::SessionsController < ApplicationController
       token = issue_token(payload)
       render json: { jwt: token, user: { id: user.id, email: user.email } }
     else
-      render json: { error: "some bad stuff happened"}
+      render json: { error: user.errors_full_messages, status: 400 }
     end
   end
 end

@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
       byebug
       render json: { jwt: token, user: { id: user.id, email: user.email } }
     else
-      render json: {messages: user.errors_full_messages, status: 400}
+      render json: {error: user.errors_full_messages, status: 400}
     end
   end
 
