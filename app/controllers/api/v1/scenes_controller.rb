@@ -6,7 +6,6 @@ class Api::V1::ScenesController < ApplicationController
   end
 
   def index
-    # scenes = Scene.all
     scenes = Scene.order("created_at DESC")
     render json: scenes
   end
