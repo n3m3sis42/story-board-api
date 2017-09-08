@@ -4,13 +4,13 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
-    if user
+    if user && !user.errors
       payload = {user_id: user.id}
       token = issue_token(payload)
-      byebug
+      # byebug
       render json: { jwt: token, user: { id: user.id, email: user.email } }
     else
-      render json: {error: user.errors_full_messages, status: 400}
+      render json: {error: user.errors.full_messages, status: 400}
     end
   end
 

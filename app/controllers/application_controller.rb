@@ -1,9 +1,4 @@
 class ApplicationController < ActionController::API
-  # include Knock:Authenticable
-  #
-  # def authenticate_v1_api_user
-  #   authenticate_for V1::Api::User
-  # end
 
   include ActionController::HttpAuthentication::Token::ControllerMethods
   before_action :authorized
