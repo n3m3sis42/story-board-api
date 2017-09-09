@@ -1,5 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:update, :show]
   skip_before_action :authorized, only: [:create]
 
   def create

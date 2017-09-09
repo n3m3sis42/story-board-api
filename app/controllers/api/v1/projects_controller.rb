@@ -1,5 +1,5 @@
 class Api::V1::ProjectsController < ApplicationController
-  before_action :authenticate_user
+before_action :authorized
 
   def create
     project = Project.create(project_params)

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :projects, only: [:create, :index, :show, :update]
       resources :users, only: [:create, :show]
       resources :sessions, only: [:create, :show]
-      get 'sessions/current_user', to: 'sessions#show'
+      get 'current_user', to: 'sessions#show'
       post 'signup', to: 'users#create'
       post 'login', to: 'sessions#create'
     end
