@@ -8,7 +8,8 @@ class Api::V1::UsersController < ApplicationController
       token = issue_token(payload)
       render json: { jwt: token, user: { id: user.id, email: user.email } }
     else
-      render json: {error: user.errors.full_messages, status: 400}
+      error = user.errors.any? ? user.errors.full_messages : "Signup failed!"
+      render json: { error: error }, status: :unauthorized
     end
   end
 

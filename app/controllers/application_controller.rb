@@ -4,14 +4,14 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def issue_token(payload)
-    JWT.encode(payload, auth_secret, "HS256")
+    JWT.encode(payload, self.auth_secret, "HS256")
   end
 
 
   def current_user
     authenticate_or_request_with_http_token do |jwt_token, options|
       begin
-        decoded_token = JWT.decode(jwt_token, auth_secret, "HS256")
+        decoded_token = JWT.decode(jwt_token, self.auth_secret, "HS256")
 
       rescue JWT::DecodeError
         return nil
