@@ -15,7 +15,7 @@ class Api::V1::SessionsController < ApplicationController
       token = issue_token(payload)
       render json: { jwt: token, user: { id: user.id, email: user.email } }
     else
-      error = user.errors.any? ? user.errors.full_messages : "Login failed!"
+      error = user.errors.any? ? user.errors.full_messages.first : "Login failed!"
       render json: { error: error }, status: :unauthorized
     end
   end
