@@ -12,6 +12,7 @@
 class Project < ApplicationRecord
   has_many :scenes
   has_many :characters, through: :scenes
+  belongs_to :user
 
   def scene_positions
     self.scenes.map{|scene| { id: scene.id, coords: scene.coords }}

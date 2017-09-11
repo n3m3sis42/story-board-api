@@ -7,6 +7,7 @@ class CreateCharacters < ActiveRecord::Migration[5.1]
       t.string :hometown
       t.string :likes
       t.string :dislikes
+      t.integer :user_id
 
       t.timestamps
     end

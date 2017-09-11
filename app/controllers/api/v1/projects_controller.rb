@@ -7,7 +7,7 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def index
-    projects = Project.order("created_at DESC")
+    projects = Project.where(user: current_user.id).order("created_at DESC")
     render json: projects
   end
 

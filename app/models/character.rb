@@ -14,6 +14,7 @@
 #
 
 class Character < ApplicationRecord
+  belongs_to :user
   has_many :scene_characters
   has_many :scenes, through: :scene_characters
 end

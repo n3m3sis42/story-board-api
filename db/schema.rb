@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170908160031) do
     t.string "hometown"
     t.string "likes"
     t.string "dislikes"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170908160031) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
