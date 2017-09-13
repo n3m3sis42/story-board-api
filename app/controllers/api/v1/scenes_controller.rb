@@ -18,7 +18,6 @@ class Api::V1::ScenesController < ApplicationController
   end
 
   def destroy
-    byebug
     scene = Scene.find(params[:id])
     if scene.destroy
       head :no_content, status: :ok

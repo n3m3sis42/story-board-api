@@ -2,12 +2,12 @@ class Api::V1::ProjectsController < ApplicationController
   before_action :authorized
 
   def create
-    project = Project.create(project_params)
+    project = Project.create(project_params.merge({user_id: current_user.id}))
     render json: project
   end
 
   def index
-    projects = Project.where(user: current_user.id).order("created_at DESC")
+    projects = Project.where(user: current_user.id).order("updated_at DESC")
     render json: projects
   end
 
@@ -25,7 +25,7 @@ class Api::V1::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description)
+    params.require(:project).permit(:name, :description, :user_id)
   end
 
 end
