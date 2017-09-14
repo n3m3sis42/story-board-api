@@ -64,6 +64,18 @@ scenes = Scene.create(
       project_id: 1
     },
     {
+      title: "Chapter 3",
+      notes: "Some other additional words",
+      status: "First Draft",
+      project_id: 1
+    },
+    {
+      title: "Chapter 4",
+      notes: "And still more words",
+      status: "First Draft",
+      project_id: 1
+    },
+    {
       title: "Not my scene",
       notes: "This scene belongs to Max, not me",
       status: "To Do",

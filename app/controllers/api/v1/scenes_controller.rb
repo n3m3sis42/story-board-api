@@ -7,7 +7,8 @@ class Api::V1::ScenesController < ApplicationController
   end
 
   def index
-    scenes = Scene.order("created_at DESC")
+    scenes = Scene.where(project_id: params[:project_id]).order("created_at DESC")
+    # scenes = Scene.order("created_at DESC")
     render json: scenes
   end
 
@@ -30,7 +31,7 @@ class Api::V1::ScenesController < ApplicationController
   private
 
   def scene_params
-    params.require(:scene).permit(:title, :notes, :x_coord, :y_coord, :project_id)
+    params.require(:scene).permit(:title, :notes, :status, :x_coord, :y_coord, :project_id)
   end
 
 end
